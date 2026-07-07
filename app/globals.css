@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  NEU Hudyat — Design System
+  All colors MUST be HSL. Tokens converted from oklch palette:
+  - Primary  : Orange/Brown   (#D17C3C / dark #D9825B)
+  - Secondary: Teal           (#3E9B7E / dark #6BAA94)
+  - Accent   : Lime/Yellow    (#D4E856 / dark #4A5C2E)
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 13% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 13%;
+
+    /* Hudyat Red — DOMINANT brand color */
+    --primary: 0 72% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Teal — supportive secondary */
+    --secondary: 158 43% 30%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 30 15% 95%;
+    --muted-foreground: 220 9% 40%;
+
+    /* Lime/Yellow-Green */
+    --accent: 68 75% 63%;
+    --accent-foreground: 220 13% 13%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 0 72% 42%;
+
+    --radius: 0.5rem;
+
+    /* Hudyat semantic surfaces — RED dominant */
+    --banner: 0 72% 38%;              /* deep red masthead */
+    --banner-foreground: 0 0% 100%;
+    --banner-muted: 0 60% 48%;        /* nav border / sub band */
+    --utility-bar: 158 40% 25%;       /* dark teal utility bar */
+    --utility-bar-foreground: 0 0% 92%;
+    --date-strip: 0 70% 96%;          /* soft red wash */
+    --date-strip-foreground: 0 72% 32%;
+    --hudyat-gold: 45 90% 55%;        /* sun-ray gold */
+    --hudyat-red: 0 72% 42%;          /* dominant red */
+    --hudyat-teal: 158 43% 30%;       /* accent teal */
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 240 5% 11%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 4% 16%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 4% 16%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 70% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 158 22% 54%;
+    --secondary-foreground: 240 5% 11%;
+
+    --muted: 240 4% 20%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 78 35% 27%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 63% 45%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 4% 22%;
+    --input: 240 4% 22%;
+    --ring: 0 70% 55%;
+
+    --banner: 0 65% 28%;
+    --banner-foreground: 0 0% 98%;
+    --banner-muted: 0 50% 38%;
+    --utility-bar: 158 35% 22%;       /* dark teal utility bar */
+    --utility-bar-foreground: 0 0% 90%;
+    --date-strip: 0 40% 18%;
+    --date-strip-foreground: 0 70% 85%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* Consistent focus ring used by all interactive cards/links/buttons */
+  .focus-ring {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-ring
+           focus-visible:ring-offset-2 focus-visible:ring-offset-background
+           rounded-sm;
+  }
+
+  /* Respect users who prefer reduced motion: keep functionality, drop motion. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    /* Disable hover translates / scales that cause perceived motion */
+    .motion-safe-transform {
+      transform: none !important;
+    }
+  }
+}
