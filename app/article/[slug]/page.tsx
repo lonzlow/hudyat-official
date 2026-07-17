@@ -37,7 +37,8 @@ export default async function ArticlePage({ params }: PageProps) {
   const hasValidImage =
     article.image &&
     typeof article.image === "string" &&
-    article.image.trim() !== "";
+    article.image.trim() !== "" &&
+    article.image !== "/images/hudyatplaceholder.webp";
 
   const hasValidDate =
     article.date != null &&

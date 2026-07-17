@@ -62,7 +62,7 @@ export const FeatureRowCard = ({
 
         <div className="flex flex-col p-5 h-full">
           <Link href={`/article/${s.slug || s.id}`}>
-            <h3 className="font-display text-lg md:text-xl font-bold leading-tight text-primary group-hover:text-primary/85 transition-colors line-clamp-2 mb-3">
+            <h3 className="font-display text-lg md:text-xl font-bold leading-tight text-foreground group-hover:text-foreground/80 transition-colors line-clamp-2 mb-3">
               {s.title}
             </h3>
           </Link>

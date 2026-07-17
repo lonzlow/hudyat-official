@@ -22,7 +22,7 @@ export const SplashScreen = ({
           show ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
-        <LoadingFlip text="Hudyat" size={160} />
+        <LoadingFlip size={320} />
       </div>
       {children}
     </div>

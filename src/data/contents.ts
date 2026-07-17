@@ -31,7 +31,7 @@ function mapRow(item: ContentRow, defaultAuthor?: string): NormalizedContent {
     excerpt: item.excerpt || null,
     date: item.date || null,
     author: rawAuthor?.authorName || defaultAuthor || 'Hudyat Staff',
-    image: rawImages?.imageLink || '',
+    image: rawImages?.imageLink || '/images/hudyatplaceholder.webp',
   }
 }
 

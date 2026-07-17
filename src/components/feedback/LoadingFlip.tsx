@@ -2,16 +2,13 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export const LoadingFlip = ({
-  text,
   className,
   size = 80,
 }: {
-  text?: string;
   className?: string;
   size?: number;
 }) => (
   <>
-    <style>{`@keyframes hudyat-flip{0%{transform:rotateY(0deg)}100%{transform:rotateY(360deg)}}`}</style>
     <div
       aria-busy="true"
       aria-live="polite"
@@ -22,7 +19,7 @@ export const LoadingFlip = ({
     >
       <div
         style={{
-          animation: "hudyat-flip 1.5s ease-in-out infinite",
+          animation: "hudyat-flip 1.5s linear infinite",
           perspective: "800px",
         }}
       >
@@ -35,11 +32,12 @@ export const LoadingFlip = ({
           className="w-auto"
         />
       </div>
-      {text && (
-        <p className="text-sm text-muted-foreground animate-pulse font-serif italic">
-          {text}
-        </p>
-      )}
+      <div className="mt-4 h-1 w-72 overflow-hidden rounded-full bg-muted">
+        <div
+          className="h-full rounded-full bg-primary"
+          style={{ animation: "loading-progress 3s ease-in-out forwards" }}
+        />
+      </div>
     </div>
   </>
 );

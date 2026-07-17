@@ -50,14 +50,14 @@ export default async function SearchPage({
                     </div>
                   )}
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-primary">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                       {item.date && new Date(item.date).toLocaleDateString("en-US", {
                         month: "long",
                         day: "numeric",
                         year: "numeric",
                       })}
                     </p>
-                    <h2 className="mt-1 font-display text-xl font-bold leading-tight group-hover:text-primary transition-colors">
+                    <h2 className="mt-1 font-display text-xl font-bold leading-tight group-hover:text-foreground/80 transition-colors">
                       {item.title}
                     </h2>
                     {item.excerpt && (

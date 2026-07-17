@@ -49,7 +49,7 @@ export const SiteHeader = () => {
   }, []);
 
   return (
-    <header className="sticky top-[50px] z-40 bg-banner text-banner-foreground border-b border-banner-muted">
+    <header className="sticky top-[50px] z-40 bg-background text-foreground border-b border-border">
       <div className="container flex items-center gap-6 py-4">
         {/* Logo + wordmark */}
         <Link
@@ -70,7 +70,7 @@ export const SiteHeader = () => {
               <li key={item.label}>
                 <Link
                   href={item.href}
-                  className="text-sm font-semibold uppercase tracking-wide text-white hover:text-accent transition-colors px-3 py-2"
+                  className="text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors px-3 py-2"
                 >
                   {item.label}
                 </Link>
@@ -80,7 +80,7 @@ export const SiteHeader = () => {
             <li>
               <Link
                 href="/about"
-                className="text-sm font-semibold uppercase tracking-wide text-white hover:text-accent transition-colors px-3 py-2"
+                className="text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors px-3 py-2"
               >
                 About Us
               </Link>
@@ -103,7 +103,7 @@ export const SiteHeader = () => {
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
-              <SheetTitle className="font-display text-2xl text-primary">
+              <SheetTitle className="font-display text-2xl text-foreground">
                 Hudyat
               </SheetTitle>
               <ul className="mt-6 flex flex-col gap-1">

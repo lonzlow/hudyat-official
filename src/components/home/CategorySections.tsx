@@ -36,7 +36,7 @@ const CategorySection = ({
     <section className="space-y-6">
       <div className="flex items-end justify-between gap-4 border-b-2 border-primary pb-2 mb-5">
         <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-primary/80">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
             {eyebrow}
           </p>
           <h2 className="font-display text-2xl md:text-3xl font-bold leading-tight text-foreground">
@@ -77,7 +77,7 @@ export async function CategorySections() {
   return (
     <div className="space-y-16">
       <div className="pb-4">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-primary/80">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
           Browse
         </p>
         <h2 className="font-display text-4xl md:text-5xl font-black text-foreground">

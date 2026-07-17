@@ -39,7 +39,7 @@ export default async function NewsPage({
                   <Image src={article.image} alt={article.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover" />
                 </div>
               )}
-              <h2 className="font-display text-lg font-bold group-hover:text-primary">{article.title}</h2>
+              <h2 className="font-display text-lg font-bold group-hover:text-foreground/80">{article.title}</h2>
               {article.excerpt && (
                 <p className="text-sm text-muted-foreground line-clamp-2">{article.excerpt}</p>
               )}

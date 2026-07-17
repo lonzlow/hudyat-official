@@ -13,7 +13,7 @@ export const SectionHeading = ({ eyebrow, title, action }: SectionHeadingProps) 
     <div className="flex items-end justify-between gap-4 border-b-2 border-primary pb-2 mb-5">
       <div>
         {eyebrow && (
-          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-primary/80">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
             {eyebrow}
           </p>
         )}
