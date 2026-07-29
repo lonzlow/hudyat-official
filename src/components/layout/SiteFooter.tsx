@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MessageCircle, Camera, Play, Mail } from "lucide-react";
+import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -57,28 +58,28 @@ export const SiteFooter = () => {
               aria-label="Facebook"
               className="p-2 rounded-full bg-banner-muted hover:bg-accent hover:text-accent-foreground transition-colors"
             >
-              <MessageCircle className="h-4 w-4" />
+              <FaFacebook className="h-4 w-4" />
             </a>
             <a
               href="https://www.instagram.com/neu_hudyat?igsh=MXFud3A1dmExdzJwaQ=="
               aria-label="Instagram"
               className="p-2 rounded-full bg-banner-muted hover:bg-accent hover:text-accent-foreground transition-colors"
             >
-              <Camera className="h-4 w-4" />
+              <FaInstagram className="h-4 w-4" />
             </a>
             <a
               href="https://youtube.com/@neuhudyat?si=LPaydMfWIfXvngSs"
-              aria-label="Twitter / X"
+              aria-label="YouTube"
               className="p-2 rounded-full bg-banner-muted hover:bg-accent hover:text-accent-foreground transition-colors"
             >
-              <Play className="h-4 w-4" />
+              <FaYoutube className="h-4 w-4" />
             </a>
             <a
               href="mailto:hudyat@neu.edu.ph"
               aria-label="Email"
               className="p-2 rounded-full bg-banner-muted hover:bg-accent hover:text-accent-foreground transition-colors"
             >
-              <Mail className="h-4 w-4" />
+              <SiGmail className="h-4 w-4" />
             </a>
           </div>
         </div>

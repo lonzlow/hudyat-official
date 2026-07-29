@@ -124,7 +124,7 @@ export default async function ArticlePage({ params }: PageProps) {
             />
           </div>
         ) : (
-          <div className="mb-6 rounded-lg overflow-hidden shadow-lg bg-gradient-to-br from-hudyat-red via-hudyat-gold to-hudyat-teal flex items-center justify-center h-64 md:h-80">
+          <div className="mb-6 rounded-lg overflow-hidden shadow-lg bg-muted flex items-center justify-center h-64 md:h-80">
             <Image
               src="/Hudyat-logo.svg"
               alt="Hudyat"

@@ -6,6 +6,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { Shell } from "@/components/layout/Shell"
 import { SplashScreen } from "@/components/feedback/SplashScreen"
+import { RouteChangeLoader } from "@/components/feedback/RouteChangeLoader"
 import "./globals.css"
 
 const inter = Inter({
@@ -56,6 +57,7 @@ export default function RootLayout({
             <SplashScreen>
               <Shell>{children}</Shell>
             </SplashScreen>
+            <RouteChangeLoader />
             <Toaster />
             <Sonner />
           </TooltipProvider>
