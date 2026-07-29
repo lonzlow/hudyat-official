@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "gen:types": "supabase gen types typescript --project-id wilbmjjlzgcywjltfcku > src/types/supabase.ts"
@@ -57,7 +57,7 @@
     "recharts": "^2.15.4",
     "sonner": "^1.7.4",
     "tailwind-merge": "^2.6.0",
-    "vaul": "^0.9.9",
+    "vaul": "^1.1.2",
     "zod": "^3.25.76"
   },
   "devDependencies": {

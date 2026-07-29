@@ -1,6 +1,8 @@
 import { YouTubeFacade } from "@/components/media/YouTubeFacade"
 import { getVideos, type NormalizedVideo } from "@/data/videos"
 
+export const dynamic = "force-dynamic"
+
 export const metadata = { title: "Newsroom" }
 
 export default async function NewsroomPage() {

@@ -2,15 +2,23 @@
 
 import { useTheme } from "next-themes";
 import { Toaster as Sonner, toast } from "sonner";
+import { useState, useEffect } from "react";
 
 type ToasterProps = React.ComponentProps<typeof Sonner>;
 
 const Toaster = ({ ...props }: ToasterProps) => {
   const { theme = "system" } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // Guard against hydration mismatch — server returns "light", client may return "dark"
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
 
   return (
     <Sonner
-      theme={theme as ToasterProps["theme"]}
+      theme={mounted ? (theme as ToasterProps["theme"]) : ("light" as ToasterProps["theme"])}
       className="toaster group"
       toastOptions={{
         classNames: {

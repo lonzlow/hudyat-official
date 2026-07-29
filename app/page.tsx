@@ -5,6 +5,8 @@ import { CategorySections } from "@/components/home/CategorySections"
 import { getLatestNews } from "@/data/contents"
 import { getVideos } from "@/data/videos"
 
+export const dynamic = "force-dynamic"
+
 export default async function HomePage() {
   const [latestNews, videos] = await Promise.all([
     getLatestNews(9),

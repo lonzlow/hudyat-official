@@ -13,11 +13,11 @@ export async function getVideos(): Promise<NormalizedVideo[]> {
   const { data } = await supabase
     .from('videos')
     .select('*')
-    .order('videoId', { ascending: false })
+    .order('video_id', { ascending: false })
 
   return (data || []).map((v) => ({
-    id: v.videoId.toString(),
-    youtubeId: extractYouTubeId(v.videoLink || ''),
-    title: v.videoName || '',
+    id: v.video_id.toString(),
+    youtubeId: extractYouTubeId(v.video_link || ''),
+    title: v.video_name || '',
   }))
 }

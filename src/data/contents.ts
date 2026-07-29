@@ -3,8 +3,8 @@ import { createServerClient } from '@/lib/supabase/server'
 import type { Database } from '@/types/supabase'
 
 type ContentRow = Database['public']['Tables']['contents']['Row'] & {
-  authors: Pick<Database['public']['Tables']['authors']['Row'], 'authorName'> | null
-  images: Pick<Database['public']['Tables']['images']['Row'], 'imageLink'> | null
+  authors: Pick<Database['public']['Tables']['authors']['Row'], 'author_name'> | null
+  images: Pick<Database['public']['Tables']['images']['Row'], 'image_link'> | null
 }
 
 export interface NormalizedContent {
@@ -25,13 +25,13 @@ function mapRow(item: ContentRow, defaultAuthor?: string): NormalizedContent {
   const rawAuthor = item.authors
   const rawImages = item.images
   return {
-    id: item.contentId.toString(),
+    id: item.content_id.toString(),
     title: item.title,
     slug: item.slug,
     excerpt: item.excerpt || null,
     date: item.date || null,
-    author: rawAuthor?.authorName || defaultAuthor || 'Hudyat Staff',
-    image: rawImages?.imageLink || '/images/hudyatplaceholder.webp',
+    author: rawAuthor?.author_name || defaultAuthor || 'Hudyat Staff',
+    image: rawImages?.image_link || '/images/hudyatplaceholder.webp',
   }
 }
 
@@ -43,8 +43,8 @@ function mapRowFull(item: ContentRow & { paragraph: string | null }): Normalized
   }
 }
 
-const DEFAULT_SELECT = `contentId, title, excerpt, date, slug, authors(authorName), images(imageLink)`
-const FULL_SELECT = `contentId, title, excerpt, paragraph, date, slug, authors(authorName), images(imageLink)`
+const DEFAULT_SELECT = `content_id, title, excerpt, date, slug, authors(author_name), images(image_link)`
+const FULL_SELECT = `content_id, title, excerpt, paragraph, date, slug, authors(author_name), images(image_link)`
 
 export async function getContentsByType(
   typeId: number,
@@ -58,7 +58,7 @@ export async function getContentsByType(
   let query = supabase
     .from('contents')
     .select(DEFAULT_SELECT, { count: 'exact' })
-    .eq('typeId', typeId)
+    .eq('type_id', typeId)
 
   if (opts?.q) {
     query = query.ilike('title', `%${opts.q}%`)
@@ -91,7 +91,7 @@ export async function getLatestNews(limit = 9): Promise<NormalizedContent[]> {
   const { data } = await supabase
     .from('contents')
     .select(DEFAULT_SELECT)
-    .eq('typeId', 1)
+    .eq('type_id', 1)
     .order('date', { ascending: false })
     .limit(limit)
 

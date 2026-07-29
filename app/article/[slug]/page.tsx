@@ -6,6 +6,8 @@ import { notFound } from "next/navigation";
 import { BackButton } from "./BackButton";
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic"
+
 interface PageProps {
   params: Promise<{ slug: string }>
 }

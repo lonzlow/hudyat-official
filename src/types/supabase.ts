@@ -5,106 +5,106 @@ export interface Database {
     Tables: {
       contents: {
         Row: {
-          contentId: number
+          content_id: number
           title: string
           excerpt: string | null
           paragraph: string | null
           date: string | null
           slug: string
-          typeId: number
-          authorId: number | null
-          imageId: number | null
+          type_id: number
+          author_id: number | null
+          image_id: number | null
         }
         Insert: {
-          contentId?: number
+          content_id?: number
           title: string
           excerpt?: string | null
           paragraph?: string | null
           date?: string | null
           slug: string
-          typeId: number
-          authorId?: number | null
-          imageId?: number | null
+          type_id: number
+          author_id?: number | null
+          image_id?: number | null
         }
         Update: {
-          contentId?: number
+          content_id?: number
           title?: string
           excerpt?: string | null
           paragraph?: string | null
           date?: string | null
           slug?: string
-          typeId?: number
-          authorId?: number | null
-          imageId?: number | null
+          type_id?: number
+          author_id?: number | null
+          image_id?: number | null
         }
         Relationships: [
           {
-            foreignKeyName: "contents_authorId_fkey"
-            columns: ["authorId"]
+            foreignKeyName: "contents_author_id_fkey"
+            columns: ["author_id"]
             isOneToOne: false
             referencedRelation: "authors"
-            referencedColumns: ["authorId"]
+            referencedColumns: ["author_id"]
           },
           {
-            foreignKeyName: "contents_imageId_fkey"
-            columns: ["imageId"]
+            foreignKeyName: "contents_image_id_fkey"
+            columns: ["image_id"]
             isOneToOne: false
             referencedRelation: "images"
-            referencedColumns: ["imageId"]
+            referencedColumns: ["image_id"]
           }
         ]
       }
       authors: {
         Row: {
-          authorId: number
-          authorName: string
-          avatarUrl: string | null
+          author_id: number
+          author_name: string
+          avatar_url: string | null
         }
         Insert: {
-          authorId?: number
-          authorName: string
-          avatarUrl?: string | null
+          author_id?: number
+          author_name: string
+          avatar_url?: string | null
         }
         Update: {
-          authorId?: number
-          authorName?: string
-          avatarUrl?: string | null
+          author_id?: number
+          author_name?: string
+          avatar_url?: string | null
         }
         Relationships: []
       }
       images: {
         Row: {
-          imageId: number
-          imageLink: string
-          altText: string | null
+          image_id: number
+          image_link: string
+          alt_text: string | null
         }
         Insert: {
-          imageId?: number
-          imageLink: string
-          altText?: string | null
+          image_id?: number
+          image_link: string
+          alt_text?: string | null
         }
         Update: {
-          imageId?: number
-          imageLink?: string
-          altText?: string | null
+          image_id?: number
+          image_link?: string
+          alt_text?: string | null
         }
         Relationships: []
       }
       videos: {
         Row: {
-          videoId: number
-          videoLink: string
-          videoName: string | null
+          video_id: number
+          video_link: string
+          video_name: string | null
         }
         Insert: {
-          videoId?: number
-          videoLink: string
-          videoName?: string | null
+          video_id?: number
+          video_link: string
+          video_name?: string | null
         }
         Update: {
-          videoId?: number
-          videoLink?: string
-          videoName?: string | null
+          video_id?: number
+          video_link?: string
+          video_name?: string | null
         }
         Relationships: []
       }

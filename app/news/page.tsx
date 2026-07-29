@@ -4,6 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { getContentsByType } from "@/data/contents"
 
+export const dynamic = "force-dynamic"
+
 export const metadata = { title: "News" }
 
 export default async function NewsPage({

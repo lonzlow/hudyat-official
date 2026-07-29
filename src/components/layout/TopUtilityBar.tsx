@@ -11,12 +11,12 @@ import { supabase } from "@/lib/supabase";
 import { cn } from "@/lib/utils";
 
 interface SearchResult {
-  contentId: string;
+  content_id: string;
   title: string;
   slug?: string;
   date?: string;
   images?: {
-    imageLink: string;
+    image_link: string;
   } | null;
 }
 
@@ -61,7 +61,7 @@ export const TopUtilityBar = () => {
     const fetchSuggestions = async () => {
       setIsLoading(true);
       try {
-        const selectFields = "contentId, title, slug, date, images(imageLink)";
+        const selectFields = "content_id, title, slug, date, images(image_link)";
         let query = supabase.from("contents").select(selectFields).limit(5);
 
         if (searchQuery.trim()) {
@@ -74,7 +74,7 @@ export const TopUtilityBar = () => {
         if (error) throw error;
         setSuggestions(
           (data || []).map((item: any) => ({
-            contentId: item.contentId,
+            content_id: item.content_id,
             title: item.title,
             slug: item.slug,
             date: item.date,
@@ -152,14 +152,14 @@ export const TopUtilityBar = () => {
                 ) : suggestions.length > 0 ? (
                   <ul className="max-h-[380px] overflow-y-auto p-2">
                     {suggestions.map((result) => {
-                      const imageUrl = result.images?.imageLink;
+                      const imageUrl = result.images?.image_link;
 
                       return (
                         <li
-                          key={result.contentId}
+                          key={result.content_id}
                           onClick={() => {
                             router.push(
-                              `/article/${result.slug || result.contentId}`,
+                              `/article/${result.slug || result.content_id}`,
                             );
                             setIsOpen(false);
                           }}

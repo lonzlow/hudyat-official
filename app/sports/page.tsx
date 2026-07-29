@@ -1,6 +1,8 @@
 import { FeatureRowCard } from "@/components/home/FeatureRowCard"
 import { getContentsByType } from "@/data/contents"
 
+export const dynamic = "force-dynamic"
+
 export const metadata = { title: "Sports" }
 
 export default async function SportsPage() {
