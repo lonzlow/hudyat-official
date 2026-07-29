@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     template: "%s — Hudyat",
   },
   description: "The official student publication of New Era University. News, features, editorials, opinions, literary works, and sports coverage.",
+  icons: {
+    icon: "/hudyat-logo.png",
+    shortcut: "/hudyat-logo.png",
+    apple: "/hudyat-logo.png",
+  },
   openGraph: {
     title: "Hudyat — NEU Student Publication",
     description: "The official student publication of New Era University.",
