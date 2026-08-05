@@ -12,6 +12,7 @@ const quickLinks = [
   { label: "Opinion", href: "/opinion" },
   { label: "Literary", href: "/literary" },
   { label: "Sports", href: "/sports" },
+  { label: "Archive", href: "/archive" },
   { label: "About", href: "/about" },
 ];
 

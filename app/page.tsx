@@ -1,6 +1,7 @@
 import { HeroCarousel } from "@/components/home/HeroCarousel"
 import { LatestNews } from "@/components/home/LatestNews"
 import { Newsroom } from "@/components/home/Newsroom"
+import { TrendingSection } from "@/components/home/TrendingSection"
 import { CategorySections } from "@/components/home/CategorySections"
 import { FadeInView } from "@/components/home/FadeInView"
 import { getLatestNews } from "@/data/contents"
@@ -22,7 +23,10 @@ export default async function HomePage() {
         <section className="container py-8 md:py-12">
           <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-12">
             <LatestNews items={latestNews} />
-            <Newsroom videos={videos} />
+            <div className="space-y-8">
+              <TrendingSection />
+              <Newsroom videos={videos} />
+            </div>
           </div>
         </section>
       </FadeInView>

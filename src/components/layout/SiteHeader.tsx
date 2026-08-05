@@ -21,6 +21,7 @@ const navItems = [
   { label: "Opinion", href: "/opinion" },
   { label: "Literary", href: "/literary" },
   { label: "Sports", href: "/sports" },
+  { label: "Archive", href: "/archive" },
 ];
 
 interface DropdownState {

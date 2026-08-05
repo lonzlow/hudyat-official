@@ -4,6 +4,10 @@ import { ArrowLeft, House, Clock } from "lucide-react";
 import { getContentBySlug } from "@/data/contents";
 import { notFound } from "next/navigation";
 import { BackButton } from "./BackButton";
+import { ShareButtons } from "@/components/article/ShareButtons";
+import { RelatedArticles } from "@/components/article/RelatedArticles";
+import { TagBadges } from "@/components/article/TagBadges";
+import { ViewTracker } from "@/components/article/ViewTracker";
 import type { Metadata } from "next";
 
 export const dynamic = "force-dynamic"
@@ -81,6 +85,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
   return (
     <article className="bg-background min-h-screen">
+      <ViewTracker contentId={article.id} />
       <div className="container max-w-4xl py-10 md:py-20">
         <header className="mb-12 space-y-8">
           <div className="flex gap-4 items-center">
@@ -110,6 +115,8 @@ export default async function ArticlePage({ params }: PageProps) {
               </span>
             )}
           </div>
+
+          <TagBadges contentId={article.id} />
         </header>
 
         {imageUrl ? (
@@ -158,7 +165,11 @@ export default async function ArticlePage({ params }: PageProps) {
           )}
         </div>
 
+        <RelatedArticles currentSlug={article.slug} typeId={article.type_id} />
+
         <footer className="mt-24 pt-12 border-t flex flex-col items-center gap-10">
+          <ShareButtons title={article.title} slug={article.slug} />
+
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-muted-foreground">
             End of Story
           </p>

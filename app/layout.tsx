@@ -46,6 +46,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="alternate" type="application/rss+xml" title="Hudyat RSS Feed" href="/rss.xml" />
+      </head>
       <body suppressHydrationWarning className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
