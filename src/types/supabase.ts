@@ -108,6 +108,32 @@ export interface Database {
         }
         Relationships: []
       }
+      article_views: {
+        Row: {
+          view_id: number
+          content_id: number
+          viewed_at: string
+        }
+        Insert: {
+          view_id?: number
+          content_id: number
+          viewed_at?: string
+        }
+        Update: {
+          view_id?: number
+          content_id?: number
+          viewed_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "article_views_content_id_fkey"
+            columns: ["content_id"]
+            isOneToOne: false
+            referencedRelation: "contents"
+            referencedColumns: ["content_id"]
+          }
+        ]
+      }
     }
     Views: {
       [_ in never]: never

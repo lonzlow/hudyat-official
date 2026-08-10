@@ -7,14 +7,14 @@ export async function recordView(contentId: string | number) {
   if (isNaN(id)) return
 
   const supabase = createServerClient()
-  await (supabase as any).from('article_views').insert({ content_id: id })
+  await supabase.from('article_views').insert({ content_id: id, viewed_at: new Date().toISOString() })
 }
 
 export async function getTrendingArticles(limit = 5): Promise<NormalizedContent[]> {
   const supabase = createServerClient()
   const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()
 
-  const { data: raw } = await (supabase as any)
+  const { data: raw } = await supabase
     .from('article_views')
     .select('content_id, viewed_at')
     .gte('viewed_at', sevenDaysAgo)
