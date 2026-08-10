@@ -14,11 +14,7 @@ services:
       - web
     
   server:
-    build:
-      context: .
-      args:
-        NEXT_PUBLIC_SUPABASE_URL: ${NEXT_PUBLIC_SUPABASE_URL}
-        NEXT_PUBLIC_SUPABASE_ANON_KEY: ${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+    image: 143629080340.dkr.ecr.ap-southeast-2.amazonaws.com/hudyat:latest
     env_file: .env
     expose:
       - "3000"
