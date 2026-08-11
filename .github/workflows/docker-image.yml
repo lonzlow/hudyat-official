@@ -71,6 +71,13 @@ jobs:
           script: |
             cd ~/hudyat-official
             git pull --ff-only
-            aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 143629080340.dkr.ecr.ap-southeast-2.amazonaws.com
-            docker compose pull
-            docker compose up -d
+            if ! command -v docker >/dev/null 2>&1; then
+              curl -fsSL https://get.docker.com | sudo sh
+            fi
+            if ! docker compose version >/dev/null 2>&1; then
+              sudo apt-get update
+              sudo apt-get install -y docker-compose-plugin
+            fi
+            aws ecr get-login-password --region ap-southeast-2 | sudo docker login --username AWS --password-stdin 143629080340.dkr.ecr.ap-southeast-2.amazonaws.com
+            sudo docker compose pull
+            sudo docker compose up -d
