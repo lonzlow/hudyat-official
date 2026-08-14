@@ -74,4 +74,4 @@ jobs:
             git pull --ff-only
             aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 143629080340.dkr.ecr.ap-southeast-2.amazonaws.com
             docker compose pull
-            docker compose up -d
+            ./fetch-secrets.sh

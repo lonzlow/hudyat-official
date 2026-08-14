@@ -2,6 +2,7 @@
 services:
   nginx: 
     image: nginx:alpine
+    restart: always
     ports:
       - "80:80"
       - "443:443"
@@ -15,7 +16,10 @@ services:
     
   server:
     image: 143629080340.dkr.ecr.ap-southeast-2.amazonaws.com/hudyat:latest
+    restart: always
     env_file: .env
+    environment: 
+      - NODE_OPTIONS=--max-old-space-size=384
     expose:
       - "3000"
     networks:
