@@ -19,7 +19,7 @@ services:
     restart: always
     env_file: .env
     environment: 
-      - NODE_OPTIONS=--max-old-space-size=384
+      - NODE_OPTIONS=--max-old-space-size=512
     expose:
       - "3000"
     networks:
