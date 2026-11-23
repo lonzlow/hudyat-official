@@ -14,6 +14,9 @@ export interface Database {
           type_id: number
           author_id: number | null
           image_id: number | null
+          status: 'draft' | 'review' | 'published'
+          created_by: string | null
+          updated_at: string
         }
         Insert: {
           content_id?: number
@@ -25,6 +28,9 @@ export interface Database {
           type_id: number
           author_id?: number | null
           image_id?: number | null
+          status?: 'draft' | 'review' | 'published'
+          created_by?: string | null
+          updated_at?: string
         }
         Update: {
           content_id?: number
@@ -36,6 +42,9 @@ export interface Database {
           type_id?: number
           author_id?: number | null
           image_id?: number | null
+          status?: 'draft' | 'review' | 'published'
+          created_by?: string | null
+          updated_at?: string
         }
         Relationships: [
           {
@@ -131,6 +140,86 @@ export interface Database {
             isOneToOne: false
             referencedRelation: "contents"
             referencedColumns: ["content_id"]
+          }
+        ]
+      }
+      tags: {
+        Row: {
+          tag_id: number
+          name: string
+          slug: string
+        }
+        Insert: {
+          tag_id?: number
+          name: string
+          slug: string
+        }
+        Update: {
+          tag_id?: number
+          name?: string
+          slug?: string
+        }
+        Relationships: []
+      }
+      content_tags: {
+        Row: {
+          content_id: number
+          tag_id: number
+        }
+        Insert: {
+          content_id: number
+          tag_id: number
+        }
+        Update: {
+          content_id?: number
+          tag_id?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "content_tags_content_id_fkey"
+            columns: ["content_id"]
+            isOneToOne: false
+            referencedRelation: "contents"
+            referencedColumns: ["content_id"]
+          },
+          {
+            foreignKeyName: "content_tags_tag_id_fkey"
+            columns: ["tag_id"]
+            isOneToOne: false
+            referencedRelation: "tags"
+            referencedColumns: ["tag_id"]
+          }
+        ]
+      }
+      staff: {
+        Row: {
+          user_id: string
+          email: string | null
+          role: 'writer' | 'editor'
+          author_id: number | null
+          created_at: string
+        }
+        Insert: {
+          user_id: string
+          email?: string | null
+          role: 'writer' | 'editor'
+          author_id?: number | null
+          created_at?: string
+        }
+        Update: {
+          user_id?: string
+          email?: string | null
+          role?: 'writer' | 'editor'
+          author_id?: number | null
+          created_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "staff_author_id_fkey"
+            columns: ["author_id"]
+            isOneToOne: false
+            referencedRelation: "authors"
+            referencedColumns: ["author_id"]
           }
         ]
       }
