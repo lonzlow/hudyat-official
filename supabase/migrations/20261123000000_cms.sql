@@ -1,3 +1,9 @@
+-- !!! DO NOT APPLY TO THE LIVE DATABASE !!!
+-- The live database already has its own editorial system (article_drafts, article_versions,
+-- staff_profiles, categories_users, comments, audit_logs, ...) with dozens of policies. Step 0
+-- below would delete the policies it relies on. This file was written without knowing that.
+-- It needs to be rewritten against the existing schema before it is used anywhere.
+--
 -- Hudyat CMS: article status workflow, staff roles, and Row Level Security.
 --
 -- Public site (anon key) can only read PUBLISHED articles.
