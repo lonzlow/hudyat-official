@@ -8,6 +8,7 @@ import { ShareButtons } from "@/components/article/ShareButtons";
 import { RelatedArticles } from "@/components/article/RelatedArticles";
 import { TagBadges } from "@/components/article/TagBadges";
 import { ViewTracker } from "@/components/article/ViewTracker";
+import { isHtmlBody, sanitizeBodyHtml } from "@/lib/article-body";
 import type { Metadata } from "next";
 
 export const dynamic = "force-dynamic"
@@ -54,6 +55,9 @@ export default async function ArticlePage({ params }: PageProps) {
 
   const imageUrl = hasValidImage ? article.image : null;
   const date = hasValidDate ? article.date : null;
+
+  // Articles published from the CMS are HTML; older ones are plain text or a JSON list.
+  const bodyHtml = isHtmlBody(article.paragraph) ? sanitizeBodyHtml(article.paragraph) : null;
 
   const parsedParagraphs = (() => {
     const rawData = article.paragraph;
@@ -148,6 +152,12 @@ export default async function ArticlePage({ params }: PageProps) {
           </p>
         )}
 
+        {bodyHtml ? (
+          <div
+            className="prose prose-lg md:prose-xl dark:prose-invert max-w-none font-serif prose-p:leading-[1.9] prose-p:mb-10 prose-img:rounded-lg prose-a:text-primary"
+            dangerouslySetInnerHTML={{ __html: bodyHtml }}
+          />
+        ) : (
         <div>
           {parsedParagraphs.length > 0 ? (
             parsedParagraphs.map((para, i) => (
@@ -164,6 +174,7 @@ export default async function ArticlePage({ params }: PageProps) {
             </p>
           )}
         </div>
+        )}
 
         <RelatedArticles currentSlug={article.slug} typeId={article.type_id} />
 
